@@ -30,11 +30,11 @@ Demonstrate your understanding of this week's concepts by answering the followin
 
 1. Explain the difference between `RDBMS` and `SQL`.
 
-sql is a relational database management system, sql is just one language used as a RDBMS.
+RDBMS is the software used to store and manipulate a database. sql is the language used to interact with that software/system.
 
 1. Why do tables need a `primary key`?
 
-to make sure each entity has a unique identifier.
+to make sure each an entity has a unique identifier.
 
 1. What is the name given to a table column that references the primary key on another table.
 
@@ -42,7 +42,7 @@ a foreign key
 
 1. What do we need in order to have a _many to many_ relationship between two tables.
 
-a third table that lists a combination of a value from each table.
+a third table that lists a unique combination of a value from each table.
 
 
 ## Project Set Up
