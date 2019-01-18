@@ -38,6 +38,19 @@ module.exports = {
         .then(ids => ({ id: ids[0] }));
     },
 
+    removeProject: function(id) {
+        return db('projects')
+          .where('id', id)
+          .del();
+      },
+
+    updateProject: function(id, changes) {
+        return db('projects')
+            .where('id', id)
+            .update(changes)
+            .then(count => (count > 0 ? this.getProject(id) : null));
+    },
+
     addAction: function(action){
         action = {...action, completed: false};
         return db('actions')
@@ -58,5 +71,18 @@ module.exports = {
         return query.then(actions => {
           return actions.map(action => mappers.actionToBody(action));
         });
-    }
+    },
+
+    removeAction: function(id) {
+        return db('actions')
+          .where('id', id)
+          .del();
+      },
+
+    updateAction: function(id, changes) {
+        return db('actions')
+            .where('id', id)
+            .update(changes)
+            .then(count => (count > 0 ? this.getAction(id) : null));
+    },
 };
