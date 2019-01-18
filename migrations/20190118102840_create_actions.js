@@ -6,7 +6,7 @@ exports.up = function(knex, Promise) {
         tbl.text('notes');
         tbl.integer('project_id').notNullable();
         tbl.boolean('completed')
-        // tbl.unique('name', 'uq_actions_name');
+        
     });
 };
 

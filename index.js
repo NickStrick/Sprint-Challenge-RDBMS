@@ -1,6 +1,6 @@
 const express = require('express');
 
-const db = require('./db.js');
+const db = require('./data/db.js');
 
 const server = express();
 
@@ -42,7 +42,19 @@ server.post('/api/projects', (req, res) => {
           });
       })
       .catch(err => res.status(500).json(err));
-  });
+});
+
+  server.post('/api/actions', (req, res) => {
+  
+    db.addAction(req.body)
+      .then(result => {
+        db.getAction(result.id)
+          .then(action => {
+            res.status(201).json(action);
+          });
+      })
+      .catch(err => res.status(500).json(err));
+});
 
 
 
