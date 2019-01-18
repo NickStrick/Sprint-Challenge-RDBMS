@@ -6,11 +6,6 @@ const server = express();
 
 server.use(express.json());
 
-// connect to the database
-
-server.get('/', (req, res) => {
-  res.send('api working');
-});
 
 server.get('/api/projects', (req, res) => {
   db.getProjects()
@@ -44,6 +39,8 @@ server.post('/api/projects', (req, res) => {
       .catch(err => res.status(500).json(err));
 });
 
+
+//actions
   server.post('/api/actions', (req, res) => {
   
     db.addAction(req.body)
@@ -55,6 +52,14 @@ server.post('/api/projects', (req, res) => {
       })
       .catch(err => res.status(500).json(err));
 });
+
+server.get('/api/actions', (req, res) => {
+    db.getAction()
+      .then(actions => {
+        res.status(200).json(actions);
+      })
+      .catch(err => res.status(500).json(err));
+  });
 
 
 
